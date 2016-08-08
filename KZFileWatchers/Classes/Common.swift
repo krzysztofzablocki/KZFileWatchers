@@ -11,7 +11,7 @@ import Foundation
 public enum FileWatcher {
     
     /**
-     Errors that can be thrown from `FileWatcherProtocol`
+     Errors that can be thrown from `FileWatcherProtocol`.
      */
     public enum Error: ErrorType {
         
@@ -46,17 +46,17 @@ public enum FileWatcher {
         case noChanges
         
         /**
-         Watched file did change change.
+         Watched file did change.
          */
         case updated(data: NSData)
     }
     
-    /// Closure used for File watcher updates
+    /// Closure used for File watcher updates.
     public typealias UpdateClosure = (RefreshResult) -> Void
 }
 
 /**
- *  Minimal interface all File Watchers have to implement
+ *  Minimal interface all File Watchers have to implement.
  */
 public protocol FileWatcherProtocol {
     /**

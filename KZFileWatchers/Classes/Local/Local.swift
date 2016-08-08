@@ -31,11 +31,11 @@ public extension FileWatcher {
         private var previousContent: NSData?
         
         /**
-         Initializes watcher to specified path
+         Initializes watcher to specified path.
          
          - parameter path:     Path of file to observe.
-         - parameter refreshInterval: Refresh interval to use for updates
-         - parameter queue:    Queue to use for firing data processing and `onChange` callback
+         - parameter refreshInterval: Refresh interval to use for updates.
+         - parameter queue:    Queue to use for firing data processing and `onChange` callback.
          
          - note: By default it throttles to 60 FPS, some editors can generate stupid multiple saves that mess with file system e.g. Sublime with AutoSave plugin is a mess and generates different file sizes, this will limit wasted time trying to load faster than 60 FPS, and no one should even notice it's throttled
          */
@@ -46,7 +46,7 @@ public extension FileWatcher {
         }
         
         /**
-         Starts observing file changes
+         Starts observing file changes.
          
          - throws: FileWatcher.Error
          */
@@ -56,7 +56,7 @@ public extension FileWatcher {
         }
         
         /**
-         Stops observing file changes
+         Stops observing file changes.
          */
         public func stop() throws {
             guard case let .Started(_, _, _, cancel) = state else { throw Error.alreadyStopped }
@@ -158,7 +158,7 @@ public extension FileWatcher.Local {
     /**
      Returns username of OSX machine when running on simulator.
      
-     - returns: Username if available
+     - returns: Username (if available)
      */
     public class func simulatorOwnerUsername() -> String {
         //! running on simulator so just grab the name from home dir /Users/{username}/Library...
