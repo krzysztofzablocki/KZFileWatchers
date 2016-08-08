@@ -33,12 +33,12 @@ Krzysztof Zabłocki, krzysztof.zablocki@pixle.pl
 
 ## Contributing
 
-Contributions to KZFileWatchers are welcomed and encouraged! Please see the [Contributing guide](https://github.com/krzysztofzablocki/KZFileWatchers/blob/develop/CONTRIBUTING.md).
+Contributions to KZFileWatchers are welcomed and encouraged! Please see the [Contributing guide](https://github.com/krzysztofzablocki/KZFileWatchers/blob/master/CONTRIBUTING.md).
 
 [A list of contributors is available through GitHub.](https://github.com/krzysztofzablocki/KZFileWatchers/graphs/contributors)
 
-To give clarity of what is expected of our members, KZFileWatchers has adopted the code of conduct defined by the Contributor Covenant. This document is used across many open source communities. For more, see the [Code of Conduct](https://github.com/krzysztofzablocki/KZFileWatchers/blob/develop/CODE_OF_CONDUCT.md).
+To give clarity of what is expected of our members, KZFileWatchers has adopted the code of conduct defined by the Contributor Covenant. This document is used across many open source communities. For more, see the [Code of Conduct](https://github.com/krzysztofzablocki/KZFileWatchers/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
-KZFileWatchers is available under the MIT license. See [LICENSE](https://github.com/krzysztofzablocki/KZFileWatchers/blob/develop/LICENSE.md) for more information.
+KZFileWatchers is available under the MIT license. See [LICENSE](https://github.com/krzysztofzablocki/KZFileWatchers/blob/master/LICENSE.md) for more information.
