@@ -20,9 +20,8 @@ Before submitting changes, please follow these guidelines:
 1. Check the open issues and pull requests for existing discussions.
 2. Open an issue to discuss a new feature.
 3. Write tests.
-4. Make sure your changes pass `make test`.
-5. Make sure the entire test suite passes locally and on Travis CI.
-6. Open a Pull Request.
+4. Make sure the entire test suite passes locally and on Travis CI.
+5. Open a Pull Request.
 
 Unless otherwise noted, the KZFileWatchers source files are distributed under
 the MIT license found in the LICENSE.md file.
