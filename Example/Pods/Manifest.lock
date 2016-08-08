@@ -1,0 +1,27 @@
+PODS:
+  - KZFileWatchers (0.1.0)
+  - Nimble (3.2.0)
+  - OHHTTPStubs/Core (5.1.0)
+  - OHHTTPStubs/Swift (5.1.0):
+    - OHHTTPStubs/Core
+  - Quick (0.9.3)
+
+DEPENDENCIES:
+  - KZFileWatchers (from `../`)
+  - Nimble (~> 3.0)
+  - OHHTTPStubs/Swift (~> 5.1)
+  - Quick (~> 0.8)
+
+EXTERNAL SOURCES:
+  KZFileWatchers:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KZFileWatchers: 3c6b1627f28b5fcb103525ebcb4540d977a054f0
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  OHHTTPStubs: 592f74439d2d72615115cf99a954237a3fbe26e5
+  Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
+
+PODFILE CHECKSUM: de4c34ce8712d12816f1e1a68a79195d28b1e74e
+
+COCOAPODS: 1.1.0.beta.1

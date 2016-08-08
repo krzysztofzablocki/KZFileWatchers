@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'KZFileWatchers_Example' do
+  pod 'KZFileWatchers', :path => '../'
+
+  target 'KZFileWatchers_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick', '~> 0.8'
+    pod 'Nimble', '~> 3.0'
+    pod 'OHHTTPStubs/Swift', '~> 5.1'
+
+  end
+end
