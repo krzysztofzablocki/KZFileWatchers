@@ -41,4 +41,4 @@ To give clarity of what is expected of our members, KZFileWatchers has adopted t
 
 ## License
 
-KZFileWatchers is available under the MIT license. See [LICENSE](https://github.com/krzysztofzablocki/KZFileWatchers/blob/master/LICENSE.md) for more information.
+KZFileWatchers is available under the MIT license. See [LICENSE](https://github.com/krzysztofzablocki/KZFileWatchers/blob/master/LICENSE) for more information.
