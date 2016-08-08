@@ -41,7 +41,7 @@ public extension FileWatcher {
         private var state: State = .stopped
         
         /**
-         Creates a new watcher using given URL and refreshInterval
+         Creates a new watcher using given URL and refreshInterval.
          
          - parameter url:             URL to observe.
          - parameter refreshInterval: Minimal refresh interval between queries.
