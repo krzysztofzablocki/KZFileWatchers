@@ -102,7 +102,25 @@ class LocalSpec: QuickSpec {
                     }
 
                     it("doesn't receive data if file didn't change") {
-                        expect(receivedData).toEventually(beNil())
+                        let sut = LocalFileWatcher(path: path)
+                        var numberOfCallbacks: Int = 0
+                        var numberOfDataReceived: Int = 0
+
+                        guard let _ = try? sut.start({ result in
+                            
+                            switch result {
+                            case .noChanges: break
+                            case .updated:
+                                numberOfDataReceived += 1
+                            }
+
+                            numberOfCallbacks += 1
+
+                        }) else { return fail() }
+
+                        sut.refresh()
+
+                        expect([numberOfCallbacks, numberOfDataReceived]).toEventually(equal([2, 1]))
                     }
                     
                     it("receives noChanges on non modified data") {

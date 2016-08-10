@@ -29,17 +29,17 @@ public extension FileWatcher {
         private var isProcessing: Bool = false
         private var cancelReload: CancelBlock?
         private var previousContent: NSData?
-        
+
         /**
          Initializes watcher to specified path.
          
          - parameter path:     Path of file to observe.
          - parameter refreshInterval: Refresh interval to use for updates.
-         - parameter queue:    Queue to use for firing data processing and `onChange` callback.
+         - parameter queue:    Queue to use for firing `onChange` callback.
          
-         - note: By default it throttles to 60 FPS, some editors can generate stupid multiple saves that mess with file system e.g. Sublime with AutoSave plugin is a mess and generates different file sizes, this will limit wasted time trying to load faster than 60 FPS, and no one should even notice it's throttled
+         - note: By default it throttles to 60 FPS, some editors can generate stupid multiple saves that mess with file system e.g. Sublime with AutoSave plugin is a mess and generates different file sizes, this will limit wasted time trying to load faster than 60 FPS, and no one should even notice it's throttled.
          */
-        public init(path: String, refreshInterval: NSTimeInterval = 1/60, queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        public init(path: String, refreshInterval: NSTimeInterval = 1/60, queue: dispatch_queue_t = dispatch_get_main_queue()) {
             self.path = path
             self.refreshInterval = refreshInterval
             self.queue = queue
@@ -63,12 +63,18 @@ public extension FileWatcher {
             cancelReload?()
             cancelReload = nil
             cancel()
-            
+
+            isProcessing = false
             state = .Stopped
+        }
+
+        deinit {
+            if case .Started = state {
+                _ = try? stop()
+            }
         }
         
         private func startObserving(closure: FileWatcher.UpdateClosure) throws {
-            let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
             let handle = open(path, O_EVTONLY)
             
             if handle == -1 {
@@ -126,9 +132,13 @@ public extension FileWatcher {
             
             if content != previousContent {
                 previousContent = content
-                closure(.updated(data: content))
+                dispatch_async(queue) {
+                    closure(.updated(data: content))
+                }
             } else {
-                closure(.noChanges)
+                dispatch_async(queue) {
+                    closure(.noChanges)
+                }
             }
             
             isProcessing = false
