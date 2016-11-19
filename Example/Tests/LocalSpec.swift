@@ -9,12 +9,14 @@ class LocalSpec: QuickSpec {
             typealias LocalFileWatcher = FileWatcher.Local
             
             let dirPath = NSTemporaryDirectory()
-            let path = dirPath.stringByAppendingString("test.txt")
+            let path = dirPath.appending("test.txt")
             
             var sut: LocalFileWatcher?
             
             beforeEach {
-                guard NSFileManager.defaultManager().createFileAtPath(path, contents: "initial".dataUsingEncoding(NSUTF8StringEncoding), attributes: nil) else { return fail() }
+                guard FileManager.default.createFile(atPath: path, contents: "initial".data(using: .utf8), attributes: nil)
+                    else { return fail() }
+                
                 sut = LocalFileWatcher(path: path, refreshInterval: 10)
             }
             
@@ -27,7 +29,7 @@ class LocalSpec: QuickSpec {
                     let sut = LocalFileWatcher(path: path)
                     var counter = 0
                     
-                    guard let _ = try? sut.start({ _ in
+                    guard let _ = try? sut.start(closure: { _ in
                         counter += 1
                     }) else { return fail() }
                     
@@ -38,7 +40,7 @@ class LocalSpec: QuickSpec {
                     let sut = LocalFileWatcher(path: path)
                     var counter = 0
                     
-                    guard let _ = try? sut.start({ _ in
+                    guard let _ = try? sut.start(closure: { _ in
                         counter += 1
                     }) else { return fail() }
                     sut.refresh()
@@ -49,11 +51,11 @@ class LocalSpec: QuickSpec {
             }
             
             context("given it already started") {
-                var receivedData: NSData?
+                var receivedData: Data?
                 var receivedNoChanges: Bool?
                 
                 beforeEach {
-                    guard let _ = try? sut?.start({ result in
+                    guard let _ = try? sut?.start(closure: { result in
                         switch result {
                         case .noChanges:
                             receivedNoChanges = true
@@ -106,7 +108,7 @@ class LocalSpec: QuickSpec {
                         var numberOfCallbacks: Int = 0
                         var numberOfDataReceived: Int = 0
 
-                        guard let _ = try? sut.start({ result in
+                        guard let _ = try? sut.start(closure: { result in
                             
                             switch result {
                             case .noChanges: break
@@ -128,8 +130,10 @@ class LocalSpec: QuickSpec {
                     }
 
                     it("receives new data on file change") {
-                        guard let expectedData = "changed".dataUsingEncoding(NSUTF8StringEncoding) else { return fail() }
-                        expectedData.writeToFile(path, atomically: true)
+                        guard let expectedData = "changed".data(using: .utf8) else { return fail() }
+                        
+                        let url = URL(fileURLWithPath: path)
+                        try? expectedData.write(to: url, options: .atomic)
                         
                         sut?.refresh()
                         

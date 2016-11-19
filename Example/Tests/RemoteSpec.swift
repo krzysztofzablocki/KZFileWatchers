@@ -16,21 +16,21 @@ class RemoteSpec: QuickSpec {
         describe("FileWatcher.Remote") {
             typealias RemoteFileWatcher = FileWatcher.Remote
 
-            let fakeURL = NSURL(string: "myfakeurl.com/file.json")!
+            let fakeURL = URL(string: "myfakeurl.com/file.json")!
 
             var stubbedReplay: OHHTTPStubsResponse?
 
             var sut: RemoteFileWatcher?
-            var recordedRequest: NSURLRequest?
+            var recordedRequest: URLRequest?
 
             beforeEach {
-                OHHTTPStubs.setEnabled(true, forSessionConfiguration: RemoteFileWatcher.sessionConfiguration)
+                OHHTTPStubs.setEnabled(true, for: RemoteFileWatcher.sessionConfiguration)
 
-                stub({ (request) -> Bool in
+                stub(condition: { (request) -> Bool in
                     recordedRequest = request
                     return true
                     }, response: { _ in
-                        return stubbedReplay ?? OHHTTPStubsResponse(data: "initial".dataUsingEncoding(NSUTF8StringEncoding)!, statusCode: 200, headers: nil)
+                        return stubbedReplay ?? OHHTTPStubsResponse(data: "initial".data(using: .utf8)!, statusCode: 200, headers: nil)
                 })
 
                 sut = RemoteFileWatcher(url: fakeURL, refreshInterval: 100.0)
@@ -48,7 +48,7 @@ class RemoteSpec: QuickSpec {
                     let sut = RemoteFileWatcher(url: fakeURL, refreshInterval: 100.0)
                     var counter = 0
 
-                    guard let _ = try? sut.start({ _ in
+                    guard let _ = try? sut.start(closure: { _ in
                         counter += 1
                     }) else { return fail() }
 
@@ -59,7 +59,7 @@ class RemoteSpec: QuickSpec {
                     let sut = RemoteFileWatcher(url: fakeURL, refreshInterval: 100.0)
                     var counter = 0
 
-                    guard let _ = try? sut.start({ _ in
+                    guard let _ = try? sut.start(closure: { _ in
                         counter += 1
                     }) else { return fail() }
                     try! sut.refresh()
@@ -72,9 +72,9 @@ class RemoteSpec: QuickSpec {
             describe("when setting up requests") {
 
                 beforeEach {
-                    guard let _ = try? sut?.start({ _ in
+                    guard let _ = try? sut?.start(closure: { _ in
 
-                        stubbedReplay = OHHTTPStubsResponse(data: "initial".dataUsingEncoding(NSUTF8StringEncoding)!, statusCode: 200, headers: [Constants.LastModifiedKey: "testLastModified", Constants.ETagKey: "testEtag"])
+                        stubbedReplay = OHHTTPStubsResponse(data: "initial".data(using: .utf8)!, statusCode: 200, headers: [Constants.LastModifiedKey: "testLastModified", Constants.ETagKey: "testEtag"])
 
                         guard let _ = try? sut?.refresh() else { return fail() }
 
@@ -95,11 +95,11 @@ class RemoteSpec: QuickSpec {
             }
 
             context("given it already started") {
-                var receivedData: NSData?
+                var receivedData: Data?
                 var receivedNoChanges: Bool?
 
                 beforeEach {
-                    guard let _ = try? sut?.start({ result in
+                    guard let _ = try? sut?.start(closure: { result in
                         switch result {
                         case .noChanges:
                             receivedNoChanges = true
