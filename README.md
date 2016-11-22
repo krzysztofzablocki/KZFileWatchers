@@ -16,7 +16,7 @@ This framework provides:
 
 - `FileWatcher.Local` useful for observing local file changes, it can also be used to breach Sandbox env for debug simulator builds and e.g. observe file on the developer desktop (like the demo app does).
 
-- `FileWatcher.Remote` can be used to observe files on the web, it supports both `Etag` headers and `Last-Modified-Date` so you can just put file on Dropbox or real ftp server. 
+- `FileWatcher.Remote` can be used to observe files on the web, it supports both `Etag` headers and `Last-Modified-Date` so you can just put file on Dropbox or real ftp server.
 
 ## Installation
 
@@ -26,6 +26,8 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "KZFileWatchers"
 ```
+
+Last version to support Swift 2.3 is `0.1.2`
 
 ## Author
 
