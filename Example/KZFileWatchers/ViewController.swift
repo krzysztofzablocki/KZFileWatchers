@@ -26,20 +26,22 @@ class ViewController: UIViewController {
     func setupDesktopDaemon(filename: String = "KZFileWatchers-Hello.txt") {
         #if (arch(i386) || arch(x86_64)) && os(iOS)
                 let path = "/Users/\(FileWatcher.Local.simulatorOwnerUsername())/Desktop/\(filename)"
-                if !NSFileManager.defaultManager().fileExistsAtPath(path) {
-                    "Hello daemon world!".dataUsingEncoding(NSUTF8StringEncoding)?.writeToFile(path, atomically: true)
+
+                if !FileManager.default.fileExists(atPath: path) {
+                    let url = URL(fileURLWithPath: path)
+                    try? "Hello daemon world!".data(using: .utf8)?.write(to: url, options: .atomic)
                 }
 
                 fileWatcher = FileWatcher.Local(path: path)
-                try! fileWatcher?.start({ result in
+                try! fileWatcher?.start() { result in
                     switch result {
                     case .noChanges:
                         break
                     case .updated(let data):
-                        let text = String(data: data, encoding: NSUTF8StringEncoding)
+                        let text = String(data: data, encoding: .utf8)
                         self.textLabel.text = text
                     }
-                })
+                }
 
         #endif
     }
