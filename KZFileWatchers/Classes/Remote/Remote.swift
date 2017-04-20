@@ -131,7 +131,7 @@ fileprivate extension FileWatcher.Remote {
         
         fileprivate func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
             guard let response = downloadTask.response as? HTTPURLResponse else {
-                assertionFailure("expected HTTPURLResponse received \(downloadTask.response)")
+                assertionFailure("expected HTTPURLResponse received \(String(describing: downloadTask.response))")
                 task = nil
                 return
             }
