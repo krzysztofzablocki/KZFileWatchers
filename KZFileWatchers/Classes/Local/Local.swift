@@ -96,7 +96,13 @@ public extension FileWatcher {
                 
                 if flags.contains(.delete) || flags.contains(.rename) {
                     _ = try? self.stop()
-                    _ = try? self.startObserving(closure)
+                    do {
+                        try self.startObserving(closure)
+                    } catch {
+                        self.queue.asyncAfter(deadline: .now() + self.refreshInterval) {
+                            _ = try? self.startObserving(closure)
+                        }
+                    }
                     return
                 }
                 
