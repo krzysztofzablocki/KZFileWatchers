@@ -22,6 +22,7 @@ A micro-framework for observing file changes, both local and remote. Helpful in 
   s.social_media_url = 'https://twitter.com/merowing_'
 
   s.ios.deployment_target = '8.0'
+  s.tvos.deployment_target = '9.0'
   s.osx.deployment_target = '10.10'
 
   s.source_files = 'KZFileWatchers/Classes/**/*'
