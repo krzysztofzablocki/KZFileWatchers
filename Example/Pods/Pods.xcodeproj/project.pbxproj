@@ -1001,6 +1001,15 @@
 					2505EBC653C2C6DC0DA6079913FAB13F = {
 						LastSwiftMigration = 0930;
 					};
+					748F1C7F61D88F3FB355A8E829489671 = {
+						LastSwiftMigration = 0930;
+					};
+					770FF5C62602F4F65D176094DF278A89 = {
+						LastSwiftMigration = 0930;
+					};
+					84B900852143C358F09CAEF776B1A86E = {
+						LastSwiftMigration = 0930;
+					};
 				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
