@@ -6,9 +6,9 @@ target 'KZFileWatchers_Example' do
   target 'KZFileWatchers_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 0.10'
-    pod 'Nimble', '~> 5.0'
-    pod 'OHHTTPStubs/Swift', '~> 5.2'
+    pod 'Quick', '~> 1.3.0'
+    pod 'Nimble', '~> 7.1.1'
+    pod 'OHHTTPStubs/Swift', '~> 6.1.0'
 
   end
 end
