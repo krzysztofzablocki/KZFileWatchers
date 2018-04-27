@@ -1,6 +1,6 @@
 {
   "name": "KZFileWatchers",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "summary": "A micro-framework for observing file changes, both local and remote. Helpful in building developer tools.",
   "description": "A micro-framework for observing file changes, both local and remote. Helpful in building developer tools. Supports both ETag and Last-Modified-Date so you can use it with most available hosting options, e.g. Dropbox or AWS.",
   "homepage": "https://github.com/krzysztofzablocki/KZFileWatchers",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/krzysztofzablocki/KZFileWatchers.git",
-    "tag": "1.0.4"
+    "tag": "1.0.5"
   },
   "social_media_url": "https://twitter.com/merowing_",
   "platforms": {

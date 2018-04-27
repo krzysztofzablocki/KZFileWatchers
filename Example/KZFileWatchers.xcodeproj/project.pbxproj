@@ -48,7 +48,7 @@
 		CD97D8221D58707800174929 /* LocalSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSpec.swift; sourceTree = "<group>"; };
 		CD97D8231D58707800174929 /* RemoteSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteSpec.swift; sourceTree = "<group>"; };
 		DDDE1D43EB83928D808567D5 /* Pods-KZFileWatchers_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KZFileWatchers_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-KZFileWatchers_Example/Pods-KZFileWatchers_Example.release.xcconfig"; sourceTree = "<group>"; };
-		EA408907E308E3B115008E2E /* KZFileWatchers.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KZFileWatchers.podspec; path = ../KZFileWatchers.podspec; sourceTree = "<group>"; };
+		EA408907E308E3B115008E2E /* KZFileWatchers.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KZFileWatchers.podspec; path = ../KZFileWatchers.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
