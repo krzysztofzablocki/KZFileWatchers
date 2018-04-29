@@ -11,6 +11,7 @@ env:
   - SCHEME=KZFileWatchers-Example
 
 before_install:
+  - gem install cocoapods
   - gem install xcpretty
 
 script:
