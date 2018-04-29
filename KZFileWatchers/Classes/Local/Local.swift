@@ -172,7 +172,7 @@ public extension FileWatcher {
 
 
 public extension FileWatcher.Local {
-    #if (arch(i386) || arch(x86_64)) && os(iOS)
+    #if targetEnvironment(simulator)
     
     /**
      Returns username of OSX machine when running on simulator.
