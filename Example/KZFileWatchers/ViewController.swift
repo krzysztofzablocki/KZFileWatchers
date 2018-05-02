@@ -24,7 +24,7 @@ class ViewController: UIViewController {
      - parameter filename: Name of the file on the user desktop folder. defaults to `traits.json`
      */
     func setupDesktopDaemon(filename: String = "KZFileWatchers-Hello.txt") {
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
                 let path = "/Users/\(FileWatcher.Local.simulatorOwnerUsername())/Desktop/\(filename)"
 
                 if !FileManager.default.fileExists(atPath: path) {

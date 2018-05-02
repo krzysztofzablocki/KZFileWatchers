@@ -31,6 +31,7 @@ pod "KZFileWatchers"
 ```
 
 Last version to support Swift 2.3 is `0.1.2`
+Last version to support Swift 3 is `0.1.4`
 
 ### Swift Package Manager
 
