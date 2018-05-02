@@ -20,6 +20,7 @@ A micro-framework for observing file changes, both local and remote. Helpful in 
   s.author           = { 'Krzysztof Zabłocki' => 'krzysztof.zablocki@pixle.pl' }
   s.source           = { :git => 'https://github.com/krzysztofzablocki/KZFileWatchers.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/merowing_'
+  s.swift_version    = '4.1'
 
   s.ios.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
