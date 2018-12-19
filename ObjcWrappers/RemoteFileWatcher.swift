@@ -16,7 +16,7 @@ public final class RemoteFileWatcher: NSObject {
 	/// Original remote FileWatcher, that does all work.
 	private let remoteWatcher: FileWatcher.Remote
 	
-	public var delegate: FileWatcherOutput?
+	public weak var delegate: FileWatcherOutput?
 	
 	/**
 	Creates a new watcher using given URL and refreshInterval.
@@ -53,9 +53,9 @@ extension RemoteFileWatcher: FileWatcherInput {
 		try remoteWatcher.start { (result) in
 			switch result {
 			case .noChanges:
-				self.delegate?.refreshDidOccur(type: .noChanges, data: nil)
+				self.delegate?.refreshDidOccur(from: self, type: .noChanges, data: nil)
 			case .updated(let data):
-				self.delegate?.refreshDidOccur(type: .updated, data: data)
+				self.delegate?.refreshDidOccur(from: self, type: .updated, data: data)
 			}
 		}
 	}

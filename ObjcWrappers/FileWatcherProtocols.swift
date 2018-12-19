@@ -16,9 +16,10 @@ public protocol FileWatcherOutput: NSObjectProtocol {
 	/// Fires, when monitoring file is updated.
 	///
 	/// - Parameters:
+	///	  - from: The file watcher, which handles file refreshing.
 	///   - type: Status of refresh result.
 	///   - data: Content from file.
-	func refreshDidOccur(type: RefreshResultType, data: Data?)
+	func refreshDidOccur(from fileWatcher: FileWatcherInput, type: RefreshResultType, data: Data?)
 }
 
 /**
@@ -33,10 +34,12 @@ public protocol FileWatcherInput: NSObjectProtocol {
 	/**
 	Starts observing file changes, a file watcher can only have one callback.
 	*/
+	@objc(startWithError:)
 	func start() throws
 	
 	/**
 	Stops observing file changes.
 	*/
+	@objc(stopWithError:)
 	func stop() throws
 }

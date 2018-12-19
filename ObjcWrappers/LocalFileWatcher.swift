@@ -16,7 +16,7 @@ public final class LocalFileWatcher: NSObject {
 	/// Original local FileWatcher, that does all work.
 	private let localWatcher: FileWatcher.Local
 	
-	public var delegate: FileWatcherOutput?
+	public weak var delegate: FileWatcherOutput?
 	
 	/**
 	Initializes watcher to specified path.
@@ -54,9 +54,9 @@ extension LocalFileWatcher: FileWatcherInput {
 		try localWatcher.start { (result) in
 			switch result {
 			case .noChanges:
-				self.delegate?.refreshDidOccur(type: .noChanges, data: nil)
+				self.delegate?.refreshDidOccur(from: self, type: .noChanges, data: nil)
 			case .updated(let data):
-				self.delegate?.refreshDidOccur(type: .updated, data: data)
+				self.delegate?.refreshDidOccur(from: self, type: .updated, data: data)
 			}
 		}
 	}
