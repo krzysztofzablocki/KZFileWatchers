@@ -53,6 +53,10 @@
 		4D82A0BF2A4412E0C7EC4B69B4790028 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFFA8D393F6B19132D6C61D37E51 /* Errors.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		506DFBBF0B9B18E5F0B5E3D8C3BCBF69 /* BeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C4DA65F6A64350AB98B9CF8437680 /* BeNil.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		526509443652A8F603FA668B459084D3 /* XCTestObservationCenter+Register.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCED1371F05E0D048263A50368C04E8 /* XCTestObservationCenter+Register.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
+		552445C621C9A2A400919287 /* LocalFileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552445C521C9A2A400919287 /* LocalFileWatcher.swift */; };
+		552445C821C9A2B200919287 /* RemoteFileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552445C721C9A2B200919287 /* RemoteFileWatcher.swift */; };
+		552445CA21C9A2C000919287 /* FileWatcherProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552445C921C9A2C000919287 /* FileWatcherProtocols.swift */; };
+		552445CC21C9A2D100919287 /* RefreshResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552445CB21C9A2D100919287 /* RefreshResultType.swift */; };
 		5602CC6FC28B00BEEB2FE8BFA8C04909 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18FB40A499B8B33B6AC809FFA32B397 /* XCTest.framework */; };
 		57A927970468105815CFE7C81DAE35FB /* BeLogical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360F6160D884F7CD0293F3D487DC8007 /* BeLogical.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		5BA61FFD060E57F79693F2341C329CDC /* OHHTTPStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = 89A4FD1645544428B30750D2C9C206D1 /* OHHTTPStubs.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -236,6 +240,10 @@
 		46B9BF1121D05A2CEF5A7B9E3B4507C9 /* Remote.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		4A168701B097E6A39D1FD300140A1068 /* NMBExceptionCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMBExceptionCapture.m; path = Sources/NimbleObjectiveC/NMBExceptionCapture.m; sourceTree = "<group>"; };
 		4E36148C712DDB6E34F6DF68A90C8702 /* BeGreaterThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThan.swift; path = Sources/Nimble/Matchers/BeGreaterThan.swift; sourceTree = "<group>"; };
+		552445C521C9A2A400919287 /* LocalFileWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileWatcher.swift; sourceTree = "<group>"; };
+		552445C721C9A2B200919287 /* RemoteFileWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFileWatcher.swift; sourceTree = "<group>"; };
+		552445C921C9A2C000919287 /* FileWatcherProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWatcherProtocols.swift; sourceTree = "<group>"; };
+		552445CB21C9A2D100919287 /* RefreshResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshResultType.swift; sourceTree = "<group>"; };
 		55789784E5D9401619B9122F24D774F0 /* Quick.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Quick.h; path = Sources/QuickObjectiveC/Quick.h; sourceTree = "<group>"; };
 		55C4D6507AEF256A352F37D60C3912CC /* QuickSpecBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickSpecBase.h; path = Sources/QuickSpecBase/include/QuickSpecBase.h; sourceTree = "<group>"; };
 		560B290CB9FAA57EB4CE68CC56BA71A8 /* QuickConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickConfiguration.m; path = Sources/QuickObjectiveC/Configuration/QuickConfiguration.m; sourceTree = "<group>"; };
@@ -547,6 +555,17 @@
 			path = "Target Support Files/Pods-KZFileWatchers_Tests";
 			sourceTree = "<group>";
 		};
+		552445CD21C9A2E000919287 /* ObjcWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				552445C521C9A2A400919287 /* LocalFileWatcher.swift */,
+				552445C721C9A2B200919287 /* RemoteFileWatcher.swift */,
+				552445C921C9A2C000919287 /* FileWatcherProtocols.swift */,
+				552445CB21C9A2D100919287 /* RefreshResultType.swift */,
+			);
+			path = ObjcWrappers;
+			sourceTree = "<group>";
+		};
 		6E0F1BA6F80B2A6EF25DF5CF65C9D5A2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +593,7 @@
 				229574D1E1813AD0E45E02719296E842 /* Pod */,
 				705BD3CC5CB487379BBBBBAF09B58777 /* Remote */,
 				19655C957478E5718B331DA070BBA4EF /* Support Files */,
+				552445CD21C9A2E000919287 /* ObjcWrappers */,
 			);
 			name = KZFileWatchers;
 			path = ../..;
@@ -1156,8 +1176,12 @@
 			files = (
 				723B79141A0201F6293E22614E594AB4 /* Common.swift in Sources */,
 				CD27A662B242721E11E9ED76881B5DED /* KZFileWatchers-dummy.m in Sources */,
+				552445CC21C9A2D100919287 /* RefreshResultType.swift in Sources */,
+				552445C821C9A2B200919287 /* RemoteFileWatcher.swift in Sources */,
 				C466A40A1B985C776A7E17398BE26913 /* Local.swift in Sources */,
 				2E45108C956DAF105D124123DB63BE66 /* Remote.swift in Sources */,
+				552445C621C9A2A400919287 /* LocalFileWatcher.swift in Sources */,
+				552445CA21C9A2C000919287 /* FileWatcherProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

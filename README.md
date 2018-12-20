@@ -18,6 +18,26 @@ This framework provides:
 
 - `FileWatcher.Remote` can be used to observe files on the web, it supports both `Etag` headers and `Last-Modified-Date` so you can just put file on Dropbox or real ftp server.
 
+It also supports usage from Objective-C projects. For this, you should consider these following steps:
+
+1. Add `$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)` into your projects **Library Search Paths** in **Build Setting** section.
+
+2. Import swift-header by adding `@import KZFileWatchers;` into any `.m` file, where you want to use FileWatchers.
+
+3. Use provided classes for set up file observing like this:
+```objectivec
+self.fileWatcher = [[LocalFileWatcher alloc] initWithPath:path];
+self.fileWatcher.delegate = self;
+[self.fileWatcher startWithError:nil];
+```
+4. Implement `FileWatcherDelegate` in your class for handling file refreshing events. For example:
+```objectivec
+- (void)refreshDidOccurFrom:(id<FileWatcherProtocol>)fileWatcher type:(enum RefreshResult)type data:(NSData *)data
+{
+    self.textLabel.text = [[NSString alloc] initWithData:data encoding:kCFStringEncodingUTF8];
+}
+```
+
 ## Installation
 
 KZFileWatchers is available through [CocoaPods](http://cocoapods.org) and [Swift Package Manager](http://github.com/apple/swift-package-manager).
