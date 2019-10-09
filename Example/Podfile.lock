@@ -1,5 +1,5 @@
 PODS:
-  - KZFileWatchers (1.0.5)
+  - KZFileWatchers (1.0.6)
   - Nimble (7.1.1)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
@@ -33,11 +33,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  KZFileWatchers: f71a6c65778f4ccde9a824bb4baf191246c849e9
+  KZFileWatchers: 13c296495714ef41ddfd5c3fb0b2d0ee175fe42e
   Nimble: 391f07782af4b37914f9bd7b2ffbb952731b8202
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
 
 PODFILE CHECKSUM: 29d2d12b6f6cc560f4d595e95013e61d58f837d3
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.8.0

@@ -289,7 +289,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KZFileWatchers_Example/Pods-KZFileWatchers_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KZFileWatchers_Example/Pods-KZFileWatchers_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KZFileWatchers/KZFileWatchers.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -298,7 +298,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KZFileWatchers_Example/Pods-KZFileWatchers_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KZFileWatchers_Example/Pods-KZFileWatchers_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		56C446DF1E6CABF967FC8C6F /* [CP] Check Pods Manifest.lock */ = {
@@ -325,7 +325,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KZFileWatchers_Tests/Pods-KZFileWatchers_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KZFileWatchers_Tests/Pods-KZFileWatchers_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
@@ -338,7 +338,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KZFileWatchers_Tests/Pods-KZFileWatchers_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KZFileWatchers_Tests/Pods-KZFileWatchers_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
