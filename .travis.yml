@@ -1,6 +1,6 @@
 language: swift
 rvm: 2.2.2
-osx_image: xcode9.3
+osx_image: xcode11.1
 
 env:
   global:
