@@ -1,32 +1,31 @@
 PODS:
   - KZFileWatchers (1.0.6)
   - Nimble (8.0.4)
-  - OHHTTPStubs/Core (6.1.0)
-  - OHHTTPStubs/Default (6.1.0):
+  - OHHTTPStubs/Core (8.0.0)
+  - OHHTTPStubs/Default (8.0.0):
     - OHHTTPStubs/Core
     - OHHTTPStubs/JSON
     - OHHTTPStubs/NSURLSession
     - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (6.1.0):
+  - OHHTTPStubs/JSON (8.0.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (6.1.0):
+  - OHHTTPStubs/NSURLSession (8.0.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (6.1.0)
-  - OHHTTPStubs/Swift (6.1.0):
+  - OHHTTPStubs/OHPathHelpers (8.0.0)
+  - OHHTTPStubs/Swift (8.0.0):
     - OHHTTPStubs/Default
   - Quick (2.2.0)
 
 DEPENDENCIES:
   - KZFileWatchers (from `../`)
   - Nimble (~> 8.0)
-  - OHHTTPStubs/Swift (~> 6.1.0)
+  - OHHTTPStubs/Swift (~> 8.0.0)
   - Quick (~> 2.1)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - OHHTTPStubs
   trunk:
     - Nimble
+    - OHHTTPStubs
     - Quick
 
 EXTERNAL SOURCES:
@@ -36,9 +35,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   KZFileWatchers: 13c296495714ef41ddfd5c3fb0b2d0ee175fe42e
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
-  OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
+  OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
 
-PODFILE CHECKSUM: 722bc3f808bc3fa80574e3ba352cd710a09b552d
+PODFILE CHECKSUM: c2088e2870fad3e700f8b542f2cfb26cde8f6b83
 
 COCOAPODS: 1.8.0
