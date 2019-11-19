@@ -13,7 +13,7 @@ public extension FileWatcher {
     /**
      Watcher for local files, it uses content diffing.
      */
-    public final class Local: FileWatcherProtocol {
+    final class Local: FileWatcherProtocol {
         private typealias CancelBlock = () -> Void
         
         private enum State {
@@ -179,11 +179,11 @@ public extension FileWatcher.Local {
      
      - returns: Username (if available)
      */
-    public class func simulatorOwnerUsername() -> String {
-    //! running on simulator so just grab the name from home dir /Users/{username}/Library...
-    let usernameComponents = NSHomeDirectory().components(separatedBy: "/")
-    guard usernameComponents.count > 2 else { fatalError() }
-    return usernameComponents[2]
+    class func simulatorOwnerUsername() -> String {
+        //! running on simulator so just grab the name from home dir /Users/{username}/Library...
+        let usernameComponents = NSHomeDirectory().components(separatedBy: "/")
+        guard usernameComponents.count > 2 else { fatalError() }
+        return usernameComponents[2]
     }
     #endif
 }

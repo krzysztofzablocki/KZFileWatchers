@@ -12,7 +12,7 @@ public extension FileWatcher {
     /**
      Watcher for remote files, it supports both ETag and Last-Modified HTTP header tags.
      */
-    public final class Remote: FileWatcherProtocol {
+    final class Remote: FileWatcherProtocol {
         private enum State {
             case started(sessionHandler: URLSessionHandler, timer: Timer)
             case stopped
