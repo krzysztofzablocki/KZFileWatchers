@@ -1,5 +1,5 @@
 PODS:
-  - KZFileWatchers (1.0.6)
+  - KZFileWatchers (1.1.0)
   - Nimble (8.0.4)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
@@ -23,10 +23,9 @@ DEPENDENCIES:
   - Quick (~> 2.1)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - OHHTTPStubs
   trunk:
     - Nimble
+    - OHHTTPStubs
     - Quick
 
 EXTERNAL SOURCES:
@@ -34,11 +33,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  KZFileWatchers: 13c296495714ef41ddfd5c3fb0b2d0ee175fe42e
+  KZFileWatchers: e7f6236d145947f40ffbf863cee15ab0e8a8f053
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
 
-PODFILE CHECKSUM: 722bc3f808bc3fa80574e3ba352cd710a09b552d
+PODFILE CHECKSUM: 124813333fd3226dd446e45f73bede0e7dbd9c3e
 
-COCOAPODS: 1.8.0
+COCOAPODS: 1.10.1

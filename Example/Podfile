@@ -7,6 +7,21 @@ target 'KZFileWatchers_Example' do
   target 'KZFileWatchers_Tests' do
     inherit! :search_paths
 
+    # Nimble linking fails due to now-missing libswiftXCTest
+    # https://github.com/Quick/Nimble/issues/855#issuecomment-831810467
+    post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            if target.name == "Nimble"
+                target.build_configurations.each do |config|
+                    xcconfig_path = config.base_configuration_reference.real_path
+                    xcconfig = File.read(xcconfig_path)
+                    new_xcconfig = xcconfig.sub('lswiftXCTest', 'lXCTestSwiftSupport')
+                    File.open(xcconfig_path, "w") { |file| file << new_xcconfig }
+                end
+            end
+        end
+    end
+    
     pod 'Quick', '~> 2.1'
     pod 'Nimble', '~> 8.0'
     pod 'OHHTTPStubs/Swift', '~> 6.1.0'
