@@ -137,7 +137,9 @@ fileprivate extension FileWatcher.Remote {
             }
             
             if response.statusCode == 304 {
-                callback(.noChanges)
+                DispatchQueue.main.async { [weak self] in
+                  self?.callback(.noChanges)
+                }
                 task = nil
                 return
             }
@@ -154,8 +156,9 @@ fileprivate extension FileWatcher.Remote {
                 assertionFailure("can't load data from URL \(location)")
                 return
             }
-            
-            callback(.updated(data: data))
+            DispatchQueue.main.async { [weak self] in
+              self?.callback(.updated(data: data))
+            }
             task = nil
         }
     }
