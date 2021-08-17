@@ -7,6 +7,8 @@ target 'KZFileWatchers_Example' do
   target 'KZFileWatchers_Tests' do
     inherit! :search_paths
 
+    # Nimble linking fails due to now-missing libswiftXCTest
+    # https://github.com/Quick/Nimble/issues/855#issuecomment-831810467
     post_install do |installer|
         installer.pods_project.targets.each do |target|
             if target.name == "Nimble"
