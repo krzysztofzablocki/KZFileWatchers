@@ -61,9 +61,16 @@ Installing KZFileWatchers over SwiftPM is only supported since version 1.0.1. Yo
 import PackageDescription
 
 let package = Package(
-    name: "YourTarget",
+    name: "YourProject",
     dependencies: [
-        .Package(url: "https://github.com/krzysztofzablocki/KZFileWatchers.git", majorVersion: 1),
+        .package(url: "https://github.com/krzysztofzablocki/KZFileWatchers.git", from: "1.1.0"),
+        // other dependencies
+    ],
+    targets: [
+        .executableTarget(name: "YourApp", dependencies: [
+            .product(name: "KZFileWatchers", package: "KZFileWatchers"),
+            // other dependencies
+        ]
     ]
 )
 ```
