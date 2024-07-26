@@ -130,9 +130,11 @@ fileprivate extension FileWatcher.Remote {
         }
         
         fileprivate func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+            defer {
+                task = nil
+            }
             guard let response = downloadTask.response as? HTTPURLResponse else {
                 assertionFailure("expected HTTPURLResponse received \(String(describing: downloadTask.response))")
-                task = nil
                 return
             }
             
@@ -140,18 +142,28 @@ fileprivate extension FileWatcher.Remote {
                 DispatchQueue.main.async { [weak self] in
                   self?.callback(.noChanges)
                 }
-                task = nil
                 return
             }
-            
+            var isChanged = false
             if let modified = response.allHeaderFields[Constants.LastModifiedKey] as? String {
+                if lastModified != modified {
+                    isChanged = true
+                }
                 lastModified = modified
             }
             
             if let etag = response.allHeaderFields[Constants.ETagKey] as? String {
+                if lastETag != etag {
+                    isChanged = true
+                }
                 lastETag = etag
             }
-            
+            if !isChanged {
+                DispatchQueue.main.async { [weak self] in
+                  self?.callback(.noChanges)
+                }
+                return
+            }
             guard let data = try? Data(contentsOf: location) else {
                 assertionFailure("can't load data from URL \(location)")
                 return
@@ -159,7 +171,6 @@ fileprivate extension FileWatcher.Remote {
             DispatchQueue.main.async { [weak self] in
               self?.callback(.updated(data: data))
             }
-            task = nil
         }
     }
 }
